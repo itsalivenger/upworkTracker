@@ -5,11 +5,12 @@ const connectToDb = require('./database/connectToDb');
 const Job = require('./database/dataModel.js');
 let PORT = process.env.PORT || 5000;
 
+app.use(allowCrossDomain);
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 app.use(cors({
     origin: '*'
-}))
+}));
 
 /// sending data to the db:
 app.post('/', (req, res)=> {
