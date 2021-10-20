@@ -3,6 +3,7 @@ let cors = require('cors');
 let parser = require('body-parser');
 const connectToDb = require('./database/connectToDb');
 const Job = require('./database/dataModel.js');
+let PORT = process.env.PORT || 5000;
 
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
@@ -22,7 +23,7 @@ app.post('/', (req, res)=> {
     .catch(err=> console.log(err));
 })
 
-app.listen(5000, ()=> {
+app.listen(PORT, ()=> {
     console.log('listening...');
 })
 
